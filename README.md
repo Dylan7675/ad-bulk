@@ -74,6 +74,8 @@ Listed below are the supported commands used with this tool.
 
 The bootloader command is used to reboot into the boot loader from android.
 
-   ```
-   adbulk bootloader
-   ```
+```
+adbulk bootloader
+```
+
+......
