@@ -52,12 +52,12 @@ nano ~/.bashrc
 nano ~/.bash_profile
 ```
 
-10. Add the following to the bottom of the file
+10. Add the following to the bottom of the file.
 ```
 export Path Line
 ```
 
-11. Refresh your .bashrc / .bash_profile file
+11. Refresh your .bashrc / .bash_profile file.
 ```
 . .bashrc
 ```
