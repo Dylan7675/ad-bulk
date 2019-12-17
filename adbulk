@@ -1,0 +1,112 @@
+
+
+bulk_bootloader(){
+  DEVICES=`adb devices | grep -v "List" | awk '{print$1}'`
+  DEVICE_COUNT=`echo $DEVICES | wc -w`
+
+  if [ $DEVICE_COUNT == 0 ]; then
+    echo "No device connected"
+    exit
+  fi
+
+  for device in $DEVICES
+  do
+    echo $device
+    adb -s $device reboot bootloader
+  done
+}
+
+bulk_fastboot(){
+  DEVICES=`adb devices | grep -v "List" | awk '{print$1}'`  
+  DEVICE_COUNT=`echo $DEVICES | wc -w`
+
+  if [ $DEVICE_COUNT == 0 ]; then
+    echo "No device connected"
+    exit
+  fi
+
+  for device in $DEVICES
+  do
+    echo $device
+    adb -s $device reboot fastboot
+  done
+
+}
+
+bulk_lock(){
+  DEVICES=`fastboot devices | grep -v "List" | awk '{print$1}'`  
+  DEVICE_COUNT=`echo $DEVICES | wc -w`
+
+  if [ $DEVICE_COUNT == 0 ]; then
+    echo "No device connected"
+    exit
+  fi
+
+  for device in $DEVICES
+  do
+    echo $device
+    fastboot -s $device flashing lock
+  done
+}
+
+bulk_unlock(){
+  DEVICES=`fastboot devices | grep -v "List" | awk '{print$1}'`  
+  DEVICE_COUNT=`echo $DEVICES | wc -w`
+
+  if [ $DEVICE_COUNT == 0 ]; then
+    echo "No device connected"
+    exit
+  fi
+
+  for device in $DEVICES
+  do
+    echo $device
+    fastboot -s $device flashing unlock
+  done
+
+}
+
+bulk_wipe(){
+  DEVICES=`fastboot devices | grep -v "List" | awk '{print$1}'`  
+  DEVICE_COUNT=`echo $DEVICES | wc -w`
+
+  if [ $DEVICE_COUNT == 0 ]; then
+    echo "No device connected"
+    exit
+  fi
+
+  for device in $DEVICES
+  do
+    echo -e "\n$device"
+    fastboot -s $device -w
+  done
+}
+
+
+case "$1" in
+        bootloader)
+                bulk_bootloader
+                ;;
+        fastboot)
+                bulk_fastboot
+                ;;
+        lock)
+                bulk_lock
+                ;;
+        unlock)
+                bulk_unlock
+                ;;
+        wipe)
+                bulk_wipe
+                ;;
+        *)
+                echo "Usage: $0 {bootloader|fastboot|lock|unlock|wipe}"
+                echo ""
+                echo "Use this shell script to do bulk operations of the given command."
+		echo ""
+		echo "bootloader - Reboots devices to the bootloader from adb"
+		echo "fastboot - Reboots devices to fastboot mode from adb(for older devices"
+		echo "lock - Locks the boot loader while devices are in fastboot mode"
+		echo "unlock - Unlocks the bootloader while devices are in fastboot mode"
+		echo "wipe - Factory resets devices while in fastboot mode"
+esac
