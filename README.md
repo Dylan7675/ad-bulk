@@ -14,7 +14,7 @@ This is an adb and fastboot wrapper to iteratively run commands on multiple devi
 2. Open a terminal.
 
 3. In your home directory, make a bin directory to hold your executable programs.
-```
+```shell
 mkdir ~/bin
 ```
 
