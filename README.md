@@ -19,50 +19,50 @@ mkdir ~/bin
 ```
 
 4. Unzip Platform-Tools in your Downloads directory.
-```
+```shell
 unzip ~/Downloads/platform-tools_your-ver.zip
 ```
 
 5. Move all files from the extracted directory to your new bin directory.
-```
+```shell
 mv ~/Downloads/platform-tools/* ~/bin
 ```
 
 6. Clone this directory.
-```
+```shell
 git@github.com:Dylan7675/adbulk.git
 ```
 
 7. Make a symbolic link from the repository to the bin directory.
-```
+```shell
 ln -s ~/ad-bulk/adbulk ~/bin
 ```
 
 8. Give read and execution rights to all files in the bin directory.
-```
+```shell
 sudo chmod 555 ~/bin/*
 ```
 
 9. Open your .bashrc or .bash_profile(macOS) file.
-```
+```shell
 nano ~/.bashrc
 ```
     or
-```
+```shell
 nano ~/.bash_profile
 ```
 
 10. Add the following to the bottom of the file.
-```
+```shell
 export PATH=$PATH:~/bin/
 ```
 
 11. Refresh your .bashrc / .bash_profile file.
-```
+```shell
 . .bashrc
 ```
     or
-```
+```shell
 . .bash_profile
 ```
 
@@ -73,36 +73,36 @@ Use the adbulk command before any adb or fastboot commands to run them iterative
 ### Examples
 
 adb push
-```
+```shell
 adbulk adb push foo.txt
 ```
 
 adb pull
-```
+```shell
 adbulk adb pull bar.txt
 ```
 
 adb install
-```
+```shell
 adbulk adb install app.apk
 ```
 
 adb reboot
-```
+```shell
 adbulk adb reboot
 ```
 
 adb root
-```
+```shell
 adbulk adb root
 ```
 
 fastboot -w
-```
+```shell
 adbulk fastboot -w
 ```
 
 fastboot reboot bootloader
-```
+```shell
 adbulk fastboot reboot bootloader
 ```
