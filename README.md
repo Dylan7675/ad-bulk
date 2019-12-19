@@ -54,7 +54,7 @@ nano ~/.bash_profile
 
 10. Add the following to the bottom of the file.
 ```
-export Path Line
+export PATH=$PATH:~/bin/
 ```
 
 11. Refresh your .bashrc / .bash_profile file.
@@ -68,14 +68,41 @@ export Path Line
 
 ## Using adbulk
 
-Listed below are the supported commands used with this tool.
+Use the adbulk command before any adb or fastboot commands to run them iteratively on multiple device. Some exclusions may apply ex: "adb devices" , "fastboot devices" , "adb shell", etc... Essentially any command that use for continued interactions on the device..
 
-#### bootloader
+### Examples
 
-The bootloader command is used to reboot into the boot loader from android.
-
+adb push
 ```
-adbulk bootloader
+adbulk adb push foo.txt
 ```
 
-......
+adb pull
+```
+adbulk adb pull bar.txt
+```
+
+adb install
+```
+adbulk adb install app.apk
+```
+
+adb reboot
+```
+adbulk adb reboot
+```
+
+adb root
+```
+adbulk adb root
+```
+
+fastboot -w
+```
+adbulk fastboot -w
+```
+
+fastboot reboot bootloader
+```
+adbulk fastboot reboot bootloader
+```
