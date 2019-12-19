@@ -30,7 +30,7 @@ mv ~/Downloads/platform-tools/* ~/bin
 
 6. Clone this directory.
 ```shell
-git@github.com:Dylan7675/adbulk.git
+git@github.com:Dylan7675/ad-bulk.git
 ```
 
 7. Make a symbolic link from the repository to the bin directory.
