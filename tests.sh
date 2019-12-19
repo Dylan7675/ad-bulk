@@ -24,3 +24,13 @@ echo "******** testing fastboot reboot ********"
 adbulk fastboot reboot &&
 echo "******** fastboot reboot passed ********"
 
+# Testing invalid inputs
+
+echo "******** testing false commands ********"
+adbulk add reboot &&
+echo "******** false commands passed ********"
+
+echo "******** testing false arguments ********"
+adbulk adb rebook &&
+echo "******** false arguments passed ********"
+
