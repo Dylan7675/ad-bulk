@@ -19,7 +19,8 @@ if test $COMMAND_TYPE = "adb" || test $COMMAND_TYPE = "fastboot" ; then
     echo "$COMMAND_TYPE -s $device $COMMAND"
     $COMMAND_TYPE -s $device $COMMAND
     if ! [ $? -eq 0 ]; then
-      echo "$COMMAND not recognized. Write command according to 'adb --help'"
+      echo "$COMMAND couldn't fully execute, check for errors."
+      echo "Write commands according to 'adb --help'"
       exit
     fi
   done
