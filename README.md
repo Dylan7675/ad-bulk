@@ -54,7 +54,7 @@ nano ~/.bash_profile
 
 10. Add the following to the bottom of the file.
 ```shell
-export PATH=$PATH:~/.bin/
+export PATH=$PATH:~/bin/
 ```
 
 11. Refresh your .bashrc / .bash_profile file.
